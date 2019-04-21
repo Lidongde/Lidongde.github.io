@@ -1,13 +1,22 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="This is the personal blog of lidongde. It's mainly used to note coding skills and some feelings."><title> | Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Blog</h1><a id="logo" href="/.">Blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta">Apr 21, 2019</div><div class="post-content"><h1 id="windows环境下hexo博客的部署"><a href="#windows环境下hexo博客的部署" class="headerlink" title="windows环境下hexo博客的部署"></a>windows环境下hexo博客的部署</h1><p>​    配置环境属于机械式的，找到教程刷刷就完了，这是第二次部署了，结果因为之前没有留好标记，搞得第二回又是一通chrome！很烦！</p>
 <p>​    所以现在就把这一回的东西都mark在这！同时，立个flag，这一回我要好好经营我这个博客，起码得两天一更！</p>
-<p>​    [首先就看官网的docs咯]（）</p>
 <ul>
-<li><p>首先就找hexo官网咯，<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档</a>很详细，小白上手的话还要参照一下其他教程的配置！</p>
+<li><p>首先就找hexo官网咯，<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">文档</a>很详细，小白上手的话还要参照一下其他教程如：<a href="https://blog.csdn.net/u011148116/article/details/52274773#commentBox" target="_blank" rel="noopener">前期安装教程</a>, <a href="https://blog.csdn.net/wsmrzx/article/details/81475866#3_198" target="_blank" rel="noopener">github部署教程</a>的配置！，第二个链接更为详细，推荐！</p>
+<p>总结如下：</p>
+<p>1、安装git和node.js，做好git的相应配置（node.js我没动！）</p>
+<p>2、npm install -g hexo-cli 命令安装hexo！推荐在shell中切换到blog的本地目录之后再操作，npm可以理解成一个模块or扩展管理器，模块安装位置似乎默认为当前文件夹！</p>
+<p>3、切换到新建的blog（本地目录）文件夹，然后</p>
+<p>​    hexo init</p>
+<p>​    npm install</p>
+<p>也可以使用hexo init folder名字 来新建一个文件再cd 进入在文件然后再使用上面第二条命令！</p>
+<p>4、保持当前工作目录为blog，运行hexo server命令后打开<a href="http://localhost:4000/" target="_blank" rel="noopener">本地端口网址http://localhost:4000/</a>查看效果，这个可以当作测试用!</p>
+<p>5、部署到github。需要先在github上创建一个新的仓库，名字格式有要求，须为username.github.io格式！，然后ssh设置并更改_config.yml文件，具体更改为在type子项后键入git，在repo子项后输入自己github仓库的地址（形如<a href="https://github.com/username/username.github.io.git），在branch子项后加上master即可，注意冒号后面要留空格！。之后使用hexo" target="_blank" rel="noopener">https://github.com/username/username.github.io.git），在branch子项后加上master即可，注意冒号后面要留空格！。之后使用hexo</a> generate(=hexo g), hexo deploy(= hexo d)命令测试，稍等一下之后打开<a href="https://Lidongde.github.io" target="_blank" rel="noopener">网页</a><a href="https://username.github.io，注意更改username为自己的用户名，如果看到网页上的东西和第四步中的内容一样就OK拉！" target="_blank" rel="noopener">https://username.github.io，注意更改username为自己的用户名，如果看到网页上的东西和第四步中的内容一样就OK拉！</a></p>
+<p>​    repo子项在某些教程中也可以使用<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:username/username.github.io的形式（我用了这个），上面那个待测试！</p>
 <ul>
-<li><p>部署到github时发现报错‘<strong>ERROR Deployer not found: github</strong>’，解决方法参见，<a href="https://www.jianshu.com/p/5c6c6cf325cd" target="_blank" rel="noopener">链接</a></p>
+<li><p>mark几个错误：</p>
+<p>1、部署到github时发现报错‘<strong>ERROR Deployer not found: github</strong>’，解决方法参见<a href="https://www.jianshu.com/p/5c6c6cf325cd" target="_blank" rel="noopener">链接</a></p>
 <p>总结一下呢，就是缺了一个必要的插件：hexo-deployer-git; 解决方法也很简单：</p>
-<p>​    npm install hexo-deployer-git –save</p>
-<p>注意_config.yml要做相应的更改！</p>
+<p>​    npm install hexo-deployer-git –save 命令即可，注意需要在第五步之前操作，这个坑是第一个教程里头的，他没写明不过第二个教程注明了！</p>
 </li>
 </ul>
 </li>
