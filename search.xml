@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[单片机单个按键扫描]]></title>
+    <url>%2Fpost%2F8051-stc89c52-SingleKey.html</url>
+    <content type="text"><![CDATA[一种最为简单的识别方式，用延时函数实现消抖处理，使用while死循环实现按键结束的判断！存在逻辑上的bug，不建议在实际项目中使用。 首先上链接！这是源文章的来源。 sbit s4 = P3^3; //单独使用一个I/O口，需要使用sbit进行位定义 void main() { while(1) { if(s4 == 0) //检测是否有键按下 { delay10ms(); //10ms延时函数进行消抖 if(s4 == 0) { dspbuf[0]++; while(!s4); //等待按键松开 } } display(); } } Warning: 在等待按键松开的过程中，如果按键长时间按下，程序会卡死在while(!s4)这一行。 解决方法： 1，改变按键的扫描方式！2，将功能实现代码放入到中断中去，例如这里的display函数。]]></content>
+      <categories>
+        <category>mcu-51</category>
+      </categories>
+      <tags>
+        <tag>stc89c52</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[经验-f12的妙用]]></title>
     <url>%2Fpost%2Ff12-an-useful-key.html</url>
     <content type="text"><![CDATA[本文链接！ 文章来源于百度经验，经验这个网站有些时候还是很有作用的，客观来讲baidu在某些场合不错的。 1首先,在自己喜欢的博客页面,点击鼠标右键,看到如下图片,点击检查.步骤阅读2然后,在右边的源码里边,找到”article_content”标签头,可以看到左侧部分的预览界面被选中的部分就是要复制粘贴文章(包括html部分),检查左侧被选中的部分是否是自己想要的部分.步骤阅读3之后,再右键选择该标签(“article_content”),如下图,选择Copy element复制(或者Cut element 剪切)该标签下的所有元素步骤阅读4最后,在自己博客的下”MarkDown编辑器”粘贴即可完全复制别人的博客步骤阅读5最后结果显示步骤阅读END]]></content>
